@@ -8,10 +8,12 @@ from utils import *
 # I dati del nostor file dati.json
 data = json.load(open("dati.json", "r"))
 header["Cookie"] = data["cookie"]
+iter = 0
 
 if __name__ == "__main__":
 
     while True:
+        iter += 1
 
         lista = getListaPrenotazioni()
 
@@ -68,15 +70,15 @@ if __name__ == "__main__":
                         if data["debug"]:
                             print("Prenotazione avvenuta con successo", end='')
                         else:
-                            print("Prenotazione avvenuta alla lezione " + nome + " con id " + str(id))
+                            print("Prenotazione avvenuta alla lezione " + nome + " con id " + str(idPrenotazione))
                     # Errore prenotazione
                     elif data["debug"]:
                         print("Si è riscontrato un errore durante la prenotazione", end='')
                     else:
                         print("E' stato riscontrato un problema durante la prenotazione della lezione " + nome + " con id " + str(id))
 
-
-            print("\nIterazione finita, pausa")
+            if data["msg"]:
+                print("\nIterazione n^ "+str(iter)+" finita, pausa", end='')
             time.sleep(data["delay"])
         else:
             print("Nessuna lezione trovata, forse il cookie è sbagliato (?)")
