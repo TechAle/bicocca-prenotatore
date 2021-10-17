@@ -6,5 +6,6 @@
   "CF" : "",
   "delay" : 1.0,
   "giorno" : ["18/10/2021"],
-  "debug" : true
+  "debug" : false,
+  "msg" : false
 }

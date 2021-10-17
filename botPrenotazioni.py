@@ -75,8 +75,8 @@ if __name__ == "__main__":
                     else:
                         print("E' stato riscontrato un problema durante la prenotazione della lezione " + nome + " con id " + str(id))
 
-
-            print("\nIterazione finita, pausa")
+            if data["msg"]:
+                print("\nIterazione finita, pausa")
             time.sleep(data["delay"])
         else:
             print("Nessuna lezione trovata, forse il cookie è sbagliato (?)")
